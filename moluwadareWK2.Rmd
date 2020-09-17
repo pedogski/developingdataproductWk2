@@ -1,0 +1,48 @@
+---
+title: "RMARKDOWN AND LEAFLET"
+author: "Oluwadare, Margaret"
+date: "9/17/2020"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+In this work we are presenting some advantages of using Rmarkdown and leaflet in working with maps. This gives a comfortable alternatives to the traditional softwares that are used.
+
+```{r Loading packages, echo=TRUE}
+library(knitr)
+library(maps)
+library(leaflet)
+library(dplyr)
+```
+
+The following accompanying codes produces maps of key places in Nigeria.
+
+```{r Key places in Nigeria, echo=TRUE}
+olu <- leaflet() %>%
+   addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lat=4.982873, lng = 8.334503, popup = "THE CITY OF CALABAR, Calabar") %>%
+  addMarkers(lat = 6.3858,lng = 9.3745,popup ="Obudu ranch mountain resort,Obudu") %>%
+  addMarkers(lat = 9.0833,lng = 7.5361, popup="ASO ROCK, ABJ") %>%
+  addMarkers(lat = 7.7833333333,lng = 10.00000000, popup ="RIVER BENUE, MARKURDI") %>%
+  addMarkers(lat=7.4273,lng=4.9091, popup="IPETU-IJESA, OSUN") %>%
+  addMarkers(lat=4.8177,lng=8.02593, popup="NSIT ATAI, AKWA IBOM STATE") 
+  
+
+olu  
+```
+Also taking a look at the famous river Niger.
+
+```{r River niger, echo=TRUE}
+ade<- leaflet() %>%
+   addTiles() %>%  
+   addMarkers(lat = 13.8601, lng = -3.333328, popup = "RIVER NIGER")
+   
+ade
+```
+CONCLUSION
+----------
+Using the Rmarkdown and leaflet to present maps makes less stressful and does not require full knowledge of the usual map applications.
